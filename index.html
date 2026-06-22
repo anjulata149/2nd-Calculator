@@ -8,6 +8,94 @@
     <title>Document</title>
 
 </head>
+    <style>
+        .body{
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0505051c;
+    height: 110vh;
+}
+#calculator{
+    background-color: #050505;
+    border-radius: 15px;
+    max-height: 700px;
+    max-width: 330px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+#display{
+    width: 100%;
+    border: none;
+    margin: 5px;
+    padding: 20px;
+    font-size: 4rem;
+    background-color: #050505;
+    color: white;
+    text-align: left;
+}
+#back{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:0.5px;
+    margin: 0px;
+    padding: 5px;
+}
+button{
+    height:90px;
+    width: 98%;
+    /* margin: 2opx; */
+    background-color: rgba(56, 52, 56, 0.84);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    margin: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#backspace-outer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#backspace{
+    border: 2px solid white;
+    height: 1.7rem;
+    text-align: center;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 2.2rem;
+    font-size: 1.5rem;
+}
+.btn-equal{
+    background-color: #df99c2;
+    color: black;
+}
+.btn-equal:hover{
+    background-color: #df99c2c4;
+}
+.btn-equal:active{
+    background-color: #df99c2;
+}
+.btn:hover{
+    background-color: rgba(42, 42, 42, 0.652);
+}
+.btn:active{
+    background-color: rgb(22, 22, 22);
+}
+.btn-operator{
+    background-color: rgba(42, 42, 42, 0.652);
+}
+.btn-operator:hover{
+    background-color: rgba(56, 52, 56, 0.84);
+}
+.btn-operator:active{
+    background-color:rgba(42, 42, 42, 0.652);
+}
+    </style>
 
 <body class="body">
     <div id="calculator" class="body">
@@ -40,7 +128,29 @@
         </div>
     </div>
 
-    <script src="/tests/ek.js" defer></script>
+    <script >
+        const display=document.querySelector("#display")
+
+function appendToDisplay(a) {
+    display.value += a;
+} 
+function clearDisplay(){
+    display.value = "";
+}
+function backspace(){
+    display.value=display.value.slice(0,-1)
+}
+function calculate(){
+    try{
+        display.value=eval(display.value);
+    }
+    catch(error){
+        display.value="ERROR";
+    }
+}
+        
+        
+    </script>
 </body>
 
 </html>
